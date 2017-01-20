@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Promise</title>
+</script>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function _lazyman(name){
+			this.fn = [];
+			this.orderPromise = this.newPromise();//定义顺序promise对象
+			this.insertPromise = this.newPromise();//定义插入promise对象
+			this.order(function(resolve){
+						console.log(name);
+            resolve();
+      })
+    }
+    _lazyman.prototype = {
+				/*实例化promise对象工厂
+				*/
+				newPromise: function(){
+					return new Promise(function(resolve,reject){
+						resolve();
+					})
+				},
+        order:function(fn){
+					var self = this;
+					this.orderPromise = this.orderPromise.then(function(){
+							return new Promise (function(resolve,reject){
+							//如果有insertPromise，阻塞orderPromise.
+							self.fir ? self.insertPromise.then(function(){fn(resolve)}) : fn(resolve);
+							})
+					})
+        },
+				insert: function(fn){
+					var self = this;
+					this.fir = true;
+					this.insertPromise = this.insertPromise.then(function(){
+						return new Promise(function(resolve,reject){
+							fn(resolve)
+							self.fir = false;
+						})
+					})
+				},
+				firstTime: function(time){
+					this.insert(function(resolve){
+						setTimeout(function(){
+							console.log('wait '+time+' s, other logic');
+							resolve();
+						},time*1000)
+					})
+					return this;
+				},
+        eat:function(fan){
+            this.order(function(resolve){
+                console.log(fan+'~~')
+                resolve();
+            })
+            return this;
+        },
+        sleep:function(time){
+						this.order(function(resolve){
+                setTimeout(function(){
+                    console.log('sleep '+time+' s');
+                    resolve()
+                },time*1000);
+            })
+            return this;
+        }
+    }
+		//接口封装。
+    function lazyman(name){
+        return new _lazyman(name);
+    }
+		//调用测试
+    lazyman('RoryWu').firstTime(1).sleep(2).firstTime(3).eat('dinner').eat('breakfast');
+		// 弹出：
+		//  wait 1 s, other logic
+		//  wait 3 s, other logic
+		//  RoryWu
+		//  sleep 2 s
+		//  dinner~~
+		//  breakfast~~
+</script>
