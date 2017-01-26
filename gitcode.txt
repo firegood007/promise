@@ -1,0 +1,54 @@
+1安装详情：http://blog.chinaunix.net/uid-25806493-id-3319781.html
+
+
+
+常规操作：
+git clone git@github.com:jirengu/git-test.git 克隆
+git pull 更新代码
+git add file / git add .  添加的到暂存区
+git rm file 删除远程文件
+git commit –m “message” 提交到本地分支
+git push –u origin master 推送到远程分支
+git status  查看当前状态
+git remote –v 查看远程目录。
+git fetch origin new branch.  //取到分支的最近代码。
+Git fetch origin develop
+Git merge FETCH_HEAD
+ 
+ 
+分支操作：
+git branch  查看当前分支
+git branch –a 查看所有分之 
+git checkout develop 切换分支
+git checkout -b develop 创建并切换分支
+ git branch -d mybranch   删除分支 
+ git branch -D mybranch  强制删除分支
+
+
+ 创建：
+git branch new branch  本地创建新的分支
+git push –u origin new branch 远程创建新的分支。
+ 切换：
+git checkout new branch 切换到新的分支
+ 合并：
+git merge master  合并主干的代码（先拉去主干的代码）
+:q!   退出命令。
+git merge new branch   把分支的代码合并。
+冲突操作：
+<<<……====           是我自己的
+===…..>>>>            是主干的
+代码回硕
+git log –l 3 查看最近的3次提交
+git reset –hard MD5（标记）强制回滚到之前的代码，干掉之前的记录。
+git push –f –u origin new branch     强制提交
+git revert MD5(标记) 回滚代码，作为一次修改。
+git push –u origin new branch  提交。
+ git reset HEAD^  commit之后，如果想撤销最近一次提交(即退回到上一次版本)并本地保留代码
+其他：
+git pull 是同一个分支进行的。
+Merge 是针对不同的分支。
+ 
+
+
+
+ 
