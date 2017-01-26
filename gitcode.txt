@@ -15,7 +15,7 @@ git fetch origin new branch.  //取到分支的最近代码。
 Git fetch origin develop
 Git merge FETCH_HEAD
  
- 
+ 11
 分支操作：
 git branch  查看当前分支
 git branch –a 查看所有分之 
