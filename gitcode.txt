@@ -15,7 +15,7 @@ git fetch origin new branch.  //取到分支的最近代码。
 Git fetch origin develop
 Git merge FETCH_HEAD
  
- 11
+ 
 分支操作：
 git branch  查看当前分支
 git branch –a 查看所有分之 
@@ -25,7 +25,7 @@ git checkout -b develop 创建并切换分支
  git branch -D mybranch  强制删除分支
 
 
- 创建：111
+ 创建：
 git branch new branch  本地创建新的分支
 git push –u origin new branch 远程创建新的分支。
  切换：
