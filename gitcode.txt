@@ -1,6 +1,6 @@
 安装详情：http://blog.chinaunix.net/uid-25806493-id-3319781.html
 1
-
+2
 
 常规操作：rory
 git clone git@github.com:jirengu/git-test.git 克隆
