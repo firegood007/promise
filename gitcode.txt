@@ -3,6 +3,7 @@
 
 
 常规操作：rory
+111,
 git clone git@github.com:jirengu/git-test.git 克隆
 git pull 更新代码
 git add file / git add .  添加的到暂存区
