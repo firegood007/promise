@@ -1,9 +1,8 @@
-1安装详情：http://blog.chinaunix.net/uid-25806493-id-3319781.html
-
+安装详情：http://blog.chinaunix.net/uid-25806493-id-3319781.html
+1
 
 
 常规操作：rory
-111,
 git clone git@github.com:jirengu/git-test.git 克隆
 git pull 更新代码
 git add file / git add .  添加的到暂存区
